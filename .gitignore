@@ -15,6 +15,13 @@
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 
+###> intellij/idea ###
+/.php_cs.cache
+/.idea
+/.settings
+/Symfony3-custom-coding-standard/
+###< intellij/idea ###
+
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/
