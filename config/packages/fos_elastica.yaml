@@ -3,4 +3,48 @@ fos_elastica:
     clients:
         default: { url: '%env(ELASTICSEARCH_URL)%' }
     indexes:
-        app: null
+        app_developpeur:
+            settings:
+                index:
+                    analysis:
+                        analyzer:
+                            dev_analyzer:
+                                type: custom
+                                tokenizer: keyword
+                                filter: [standard, lowercase, asciifolding, trim, snowball]
+
+                        normalizer:
+                            dev_analyzer:
+                                type: custom
+                                filter: [lowercase, asciifolding]
+
+                        filter:
+                            snowball:
+                                type: snowball
+                                language: French
+
+            types:
+                developpeur:
+                    properties:
+                        name:
+                            type: text
+                            fielddata: true
+                            copy_to: fullname
+                            analyzer: dev_analyzer
+                        lastname:
+                            type: text
+                            fielddata: true
+                            copy_to: fullname
+                            analyzer: dev_analyzer
+                        fullname:
+                            type: text
+                            store: true
+                        type: ~
+
+                    persistence:
+                        # the driver can be orm, mongodb or phpcr
+                        driver: orm
+                        model: App\Entity\Developpeur
+                        repository: App\Repository\DeveloppeurSearchRepository
+                        provider: ~
+                        finder: ~

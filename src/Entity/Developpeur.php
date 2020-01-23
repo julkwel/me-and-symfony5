@@ -1,4 +1,7 @@
 <?php
+/**
+ * @author <julienrajerison5@gmail.com>.
+ */
 
 namespace App\Entity;
 
@@ -32,9 +35,35 @@ class Developpeur
     private $poste;
 
     /**
+     * @var string|null
+     */
+    private $fullname;
+
+    /**
      * @ORM\Column(type="string", length=100)
      */
     private $type;
+
+    /**
+     * @return string|null
+     */
+    public function getFullname(): ?string
+    {
+        return $this->fullname;
+    }
+
+    /**
+     * @param string|null $fullname
+     *
+     * @return \App\Entity\Developpeur
+     */
+    public function setFullname(?string $fullname): Developpeur
+    {
+        $this->fullname = $fullname;
+
+        return $this;
+    }
+
 
     public function getId(): ?int
     {

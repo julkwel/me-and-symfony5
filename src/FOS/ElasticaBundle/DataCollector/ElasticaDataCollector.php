@@ -1,6 +1,6 @@
 <?php
 /**
- * @author <Bocasay>.
+ * @author <julienrajerison@gmail.com>.
  */
 
 namespace FOS\ElasticaBundle\DataCollector;
@@ -13,7 +13,8 @@ use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 /**
  * Data collector collecting elastica statistics.
  *
- * @author Gordon Franke <info@nevalon.de>
+ * @author Gordon Franke <info@nevalon.de> | <julienrajerison5@gmail.com>
+ *
  */
 class ElasticaDataCollector extends DataCollector
 {
